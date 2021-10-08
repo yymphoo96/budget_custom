@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record  id="category_isy_security" model="ir.module.category">
+            <field name="name">ISY</field>
+        </record>
+
+        <record id="group_isy_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="category_isy_security" />
+        </record>
+
+        <record id="group_isy_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="implied_ids" eval="[(4, ref('group_isy_user'))]" />
+            <field name="category_id" ref="category_isy_security" />
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="budget_report_template">
+    <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
+    <t t-call="web.html_container">
+         <t t-call="web.external_layout">
+            <div class="page" >
+                <br/>
+                <div style="text-align:left:color:black!important;"><strong><h1>Budget Report</h1></strong></div>
+                <div style="text-align:left:color:black!important;"><strong>From Date : </strong><span t-esc="start_date"/></div>
+                <div style="text-align:left:color:black!important;"><strong>To Date : </strong><span t-esc="end_date"/></div>
+
+                <table class="table table-condensed table-bordered"  style="border-color:black;font-size:14px">
+                <thead style="border-color:black;">
+                    <tr style="border-color:black;">
+                        <th style="border-color:black; width: 10%; text-align:center" >Budget Name.</th>
+                        <th style="border-color:black; width: 15%; text-align:center" >From Date</th>
+                        <th style="border-color:black; width: 12%; text-align:center">To Date</th>
+                        <th style="border-color:black; width: 12%; text-align:center">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="vals" t-as="l">
+                    <tr >
+                        <td style="border-color:black;" class="text-right">
+                            <span t-esc="l['budget_name']" />
+                        </td>
+                        <td style="border-color:black;" class="text-right">
+                            <span t-esc="l['from_date']" />
+                        </td>
+                        <td style="border-color:black;" class="text-right">
+                            <span t-esc="l['to_date']" />
+                        </td>
+                        <td style="border-color:black;" class="text-right">
+                            <span t-esc="l['amount']" />
+                        </td>
+
+                    </tr>
+                    </t>
+                </tbody>
+                </table>
+                <div class = "footer">
+                    <div class="pull-left">
+                    </div>
+                    <div class="pull-right">
+                            Printed Date: <span t-esc="time.strftime('%d-%b-%Y')"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+    </div>
+</template>
+</odoo>

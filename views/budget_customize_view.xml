@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="budget_customize_list">
+      <field name="name">budget_customize_list</field>
+      <field name="model">budget.customize</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name = "from_date"/>
+            <field name = "to_date"/>
+            <field name = "amount"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="budget_customize_form">
+      <field name="name">budget_customize_form</field>
+      <field name="model">budget.customize</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+              <group>
+              <group>
+                    <field name = "name" required="1"/>
+
+                </group>
+                <group>
+                </group>
+                <group >
+                    <field name = "from_date"/>
+                    <field name = "to_date"/>
+                </group>
+                  <group>
+                    <field name = "amount"/>
+                    <field name = "current_year_amt"/>
+                    <field name = "last_year_amt"/>
+                  </group>
+              </group>
+
+
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record id="budget_customize_search_view" model="ir.ui.view">
+      <field name="name">budget.customization.search.view</field>
+      <field name="model">budget.customize</field>
+      <field name="arch" type="xml">
+          <search string="budget_customize">
+              <field name="name"/>
+          </search>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_budget_customize">
+      <field name="name">All</field>
+      <field name="res_model">budget.customize</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="budget_customize_search_view"/>
+    </record>
+    <menuitem id="menu_budget_customize_main" name="Budget" parent="hr.menu_hr_root" sequence="99"/>
+    <menuitem id="menu_budget_customize" name="Budget Customize" parent="menu_budget_customize_main" sequence="1" action="action_budget_customize"/>
+  </data>
+</odoo>

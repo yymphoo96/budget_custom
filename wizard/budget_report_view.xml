@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="budget_report_wizard" model="ir.ui.view">
+      <field name="name">Budget Report</field>
+      <field name="model">budget.report.wizard</field>
+      <field name="arch" type="xml">
+          <form string="Budget Report" >
+              <group>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+              </group>
+              <group>
+              </group>
+            <footer>
+                <button name="print_report" type="object" string="Print Report" class="oe_highlight"/>
+                or
+                <button string="Cancel" class="oe_link" special="cancel"/>
+            </footer>
+          </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_budget_report">
+      <field name="name">Budget Report</field>
+      <field name="res_model">budget.report.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="budget_report_wizard"/>
+      <field name="target">new</field>
+    </record>
+
+    <menuitem name="Budget Report" id="menu_budget_report" parent="menu_budget_customize_main"
+              action="action_budget_report"/>
+  </data>
+</odoo>

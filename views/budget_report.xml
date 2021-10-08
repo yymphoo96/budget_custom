@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="budget_report" model="ir.actions.report">
+        <field name="name">Budget Report</field>
+        <field name="model">budget.customize</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">budget_custom.budget_report_template</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_budget_customize,access_budget_customize,model_budget_customize,base.group_user,1,1,1,1
+access_fiscial_year_task,access_fiscial_year_task,model_fiscial_year_task,base.group_user,1,1,1,1
